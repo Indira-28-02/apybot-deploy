@@ -3,7 +3,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 import cohere
 import os
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Load Cohere API key from environment variable
 cohere_api_key = os.environ.get("qLTHL9OycLbwnvk6YGGR7ezo4fKD0UkVFG3MG9aG")
@@ -32,6 +32,6 @@ def webhook():
 
     return str(twilio_resp)
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
